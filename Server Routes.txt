@@ -1,0 +1,22 @@
+A route is a unique combination of a URL path and a HTTP Method. Routes are used to locate certain resources or trigger certain actions on an API.
+
+HTTP Methods or Verbs are constants that are used by API developers and HTTP to help determine intent of an API call. There are many methods, but the common ones are:
+
+GET - used to get information from an API
+POST - used to mutate or create new information on an API. Usually has data sent along with the request.
+PUT - used to replace existing information on an API. Usually has data sent along with the request.
+PATCH - used to update existing information on an API. Usually has data sent along with the request.
+DELETE- used to remove existing information on an API.
+OPTIONS - used with CORS by browsers to check to see if the client is able to actually communicate with an API
+Here are some examples of routes:
+
+GET /api/user/1
+POST /food
+Engineers can design these routes and what the routes actually do however they see fit. To standardize this, there are different approaches to designing these routes. The most popular is REST. There are others like grpc, graphql, and protobuff.
+
+res.status(200)
+
+status codes are 3 digit numbers
+200-300 is a successful status
+400 user based error
+500 server based error
