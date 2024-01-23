@@ -15,12 +15,11 @@ export const createNewUser = async (req, res, next) => {
         e.type = 'input'
         next(e)
     }
-
-    
-    
-
-    
 }
+
+// class CustomError extends Error {
+    
+// }
 
 export const signin = async (req, res) => {
     const user = await prisma.user.findUnique({

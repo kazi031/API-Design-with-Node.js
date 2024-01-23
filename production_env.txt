@@ -1,0 +1,6 @@
+To set production environment: 
+$env:STAGE="production"
+npm run dev
+
+$env:STAGE="local"
+npm run dev
