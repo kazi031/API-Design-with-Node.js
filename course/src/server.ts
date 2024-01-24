@@ -30,9 +30,10 @@ app.get('/', (req,res,next) => {
     // res.status(200)
     // res.json({message: 'hello'})
     // throw new Error('hello')
-    setTimeout(() => {
-        next(new Error('hello')) 
-    },1) 
+    // setTimeout(() => {
+    //     next(new Error('hello')) 
+    // },1) 
+    res.json({message: 'hello'})
     // Express Can't handle async errors 
 })  
 

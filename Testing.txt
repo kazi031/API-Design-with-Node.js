@@ -1,0 +1,20 @@
+ 
+npm i supertest @types/supertest jest @types/jest ts-jest
+Supertest -> will allow us to do integration testing
+ jest -> is a testing framework like react is a client framework
+ts-jest allows our jest to write in typescript
+
+npx ts-jest config:init
+
+unit test:
+// not testable
+const value = 100;
+const action = () => {
+  console.log(value);
+};
+``;
+
+// testable
+export const action = (value) => {
+  console.log(value);
+};
