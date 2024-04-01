@@ -2,9 +2,12 @@ import express from 'express'
 import router from './router'
 import morgan from 'morgan'
 import cors from 'cors'
+const multer = require('multer');
 import { protect } from './modules/auth'
 import { createNewUser, signin } from './handlers/user'
-
+import { createNewEmployee } from './handlers/employee'
+// const upload = multer();
+const upload = multer({ dest: 'uploads/' });
 const app = express()
 
 const customLogger = (message) => (req, res, next) => {
@@ -14,9 +17,10 @@ const customLogger = (message) => (req, res, next) => {
 
 app.use(cors())
 app.use(morgan('dev'))
+app.use('/uploads', express.static('uploads'));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(customLogger('custom Logger'))
+app.use(customLogger('custom Logger'));
 
 // app.use((req, res, next) => {
 //     req.shh_secret = 'doggy'
@@ -39,6 +43,8 @@ app.get('/', (req,res,next) => {
 
 app.use('/api', protect, router)
 app.post('/user', createNewUser)
+// app.post('/admin', createNewAdmin)
+app.post('/admin',upload.single('image'),createNewEmployee)
 app.post('/signin', signin)  
 
 app.use((err, req, res, next) => {

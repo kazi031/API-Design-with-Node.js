@@ -4,3 +4,5 @@ npm run dev
 
 $env:STAGE="local"
 npm run dev
+
+"production env"
